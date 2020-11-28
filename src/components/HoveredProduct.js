@@ -3,36 +3,26 @@ import {Context} from "../Context"
 
 function HoveredProduct({product}){
 
-    const {addToCart} = useContext(Context)
-
-    const hoveredStyle = {
-        position: "absolute",
-        zIndex: "1",
-        backgroundColor: "rgba(241, 115, 0, .9)",
-        textAlign: "center",
-        height: "100%",
-        width: "100%",
-        top: "-1em",
-        left: "-1em",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        borderRadius: "1em",
-        padding: "1em"
-    }
-
-    const priceStyle = {
-        color: "white",
-        opacity: "1",
-        fontSize: "2rem"
-    }
+    const {addToCart, cartItems, removeFromCart} = useContext(Context)
 
     const priceForm = (product.price).toLocaleString("en-US", {style: "currency", currency: "USD"})
 
+    
+    const alreadyAdded = cartItems.some(item => item.id === product.id)
+
+    function button(){
+        if(!alreadyAdded){
+          return <button className={"btn"} onClick={() => addToCart(product)}>Add to Cart!</button>
+        } else {
+          return <button className={"btn"} onClick={() => removeFromCart(product.id)}>Remove</button>
+        }
+    }
+
     return(
-        <div style={hoveredStyle}>
-        <p style={priceStyle}>{priceForm}</p>
-        <button onClick={() => addToCart(product)}>Add to Cart</button>
+        <div className={"hovered-product-card"}>
+        <p className={"hovered-price"}>{priceForm}</p>
+        {alreadyAdded && <p style={{color: "white"}}>This item is in your cart.</p>}
+        {button()}
         </div>
     )
 }

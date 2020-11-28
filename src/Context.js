@@ -14,6 +14,10 @@ function ContextProvider({children}){
         setCartItems(prevItems => prevItems.filter(item => item.id !== id))
     }
 
+    function clearCart(){
+        setCartItems([])
+    }
+
     useEffect(() => {
         fetch('https://fakestoreapi.com/products?limit=10')
             .then(res => res.json())
@@ -21,7 +25,7 @@ function ContextProvider({children}){
     }, [])
 
     return (
-        <Context.Provider value={{allProducts, addToCart, cartItems, removeFromCart}}>
+        <Context.Provider value={{allProducts, addToCart, cartItems, removeFromCart, clearCart}}>
             {children}
         </Context.Provider>
     )

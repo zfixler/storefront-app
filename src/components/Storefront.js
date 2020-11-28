@@ -10,15 +10,8 @@ function Storefront(){
         <Product key={product.id} product={product}/>
     )
 
-    const style = {
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "space-around",
- 
-    }
-
     return(
-        <div style={style}>
+        <div className={"storefront-container"}>
             {products}
         </div>
     )

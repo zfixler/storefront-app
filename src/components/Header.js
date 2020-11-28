@@ -1,36 +1,17 @@
-import React from "react"
+import React, {useContext} from "react"
 import {Link} from "react-router-dom"
+import {Context} from "../Context"
 
 function Header(){
 
-    const style = {
-        backgroundColor: "#F17300",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        margin: "0 0 2em 0",
-        boxShadow: "3px 3px 5px 0px rgba(0,0,0,0.33)",
-        padding: "2em 3em",
-    }
+    const {cartItems} = useContext(Context)
 
-    const iconStyle = {
-        float: "right",
-        color: "white",
-        cursor: "pointer",
-    }
-
-    const titleStyle = {
-        textAlign: "center",
-        color: "white",
-        fontSize: "2rem",
-        cursor: "pointer",
-        margin: "0",
-    }
+    const iconStyle = cartItems.length > 0 ? "ri-shopping-cart-fill ri-2x" : "ri-shopping-cart-line ri-2x"
 
     return(
-        <header style={style}>
-            <Link to="/"><h1 style={titleStyle}>Storefront App</h1></Link>
-            <Link to="/cart"><i style={iconStyle} class="ri-shopping-cart-line ri-2x"></i></Link>
+        <header>
+            <Link to="/"><h1 className={"header-title"}>Storefront App</h1></Link>
+            <Link to="/cart"><i className={"header-icon"} class={iconStyle}></i></Link>
         </header>
     )
 }
