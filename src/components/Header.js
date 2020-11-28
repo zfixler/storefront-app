@@ -8,7 +8,7 @@ function Header(){
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        margin: "0",
+        margin: "0 0 2em 0",
         boxShadow: "3px 3px 5px 0px rgba(0,0,0,0.33)",
         padding: "2em 3em",
     }

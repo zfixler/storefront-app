@@ -14,3 +14,12 @@ h1 {
 a {
   text-decoration: none;
 }
+
+img {
+  display: inline-block;
+  object-fit: cover;
+}
+ 
+.ri-delete-bin-6-fill {
+  cursor: pointer;
+}
