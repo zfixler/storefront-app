@@ -4,13 +4,13 @@ import {Context} from "../Context"
 
 function Header(){
 
-    const {cartItems} = useContext(Context)
+    const {cartItems, setActivePage} = useContext(Context)
 
     const iconStyle = cartItems.length > 0 ? "ri-shopping-cart-fill ri-2x" : "ri-shopping-cart-line ri-2x"
 
     return(
         <header>
-            <Link to="/"><h1 className={"header-title"}>Storefront App</h1></Link>
+            <Link to="/"><h1 className={"header-title"} onClick={() => setActivePage(1)}>Storefront App</h1></Link>
             <Link to="/cart"><i className={"header-icon"} class={iconStyle}></i></Link>
         </header>
     )

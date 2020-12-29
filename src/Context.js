@@ -5,6 +5,8 @@ const Context = React.createContext()
 function ContextProvider({children}){
     const [allProducts, setAllProducts] = useState([])
     const [cartItems, setCartItems] = useState([])
+    const [activePage, setActivePage] = useState(1)
+    const [isLoading, setIsLoading] = useState(true)
 
     function addToCart(newItem){
         setCartItems(prevItems => [...prevItems, newItem])
@@ -19,13 +21,19 @@ function ContextProvider({children}){
     }
 
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products?limit=10')
-            .then(res => res.json())
-            .then(json => setAllProducts(json))
+        async function getData(){
+            const data = await fetch('https://fakestoreapi.com/products/')
+            const response = await data.json()
+            setAllProducts(response)
+            setIsLoading(false)
+        }
+
+        getData()
+        
     }, [])
 
     return (
-        <Context.Provider value={{allProducts, addToCart, cartItems, removeFromCart, clearCart}}>
+        <Context.Provider value={{allProducts, addToCart, cartItems, removeFromCart, clearCart, activePage, setActivePage, isLoading, setIsLoading}}>
             {children}
         </Context.Provider>
     )
