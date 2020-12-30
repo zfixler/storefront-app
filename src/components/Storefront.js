@@ -39,8 +39,10 @@ function Storefront(){
     console.log(isLoading)
 
     return(
+        isLoading ? <div className={"loading-container"}><div className={"loading-spinner"}></div></div> :
         <>
-        <form className="search-bar">
+        <form className="search-bar"
+              onSubmit={(e) => e.preventDefault()}  >
             <i class="ri-search-line ri-2x"></i>
             <input type="text" 
                    value={searchTerm} 
@@ -48,14 +50,13 @@ function Storefront(){
                    className={"search-input"}
                    placeholder="Search products here..." />
         </form>
-        {isLoading ? <div className={"loading-container"}><div className={"loading-spinner"}></div></div> : 
             <div className={"storefront-container"}>
                 {searchTerm === '' ? displayProducts(activePage) : displayResult}
-            </div>}
+            </div>
         <div className={"page-numbers"}>
                 <p className={activePage === 1 && "active-page"} onClick={() => {setActivePage(1)}}>1</p>
                 <p className={activePage === 2 && "active-page"} onClick={() => {setActivePage(2)}}>2</p>
-        </div>
+        </div> 
         </>
     )
 }

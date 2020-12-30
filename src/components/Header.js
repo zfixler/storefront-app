@@ -10,7 +10,7 @@ function Header(){
 
     return(
         <header>
-            <Link to="/"><h1 className={"header-title"} onClick={() => setActivePage(1)}>Storefront App</h1></Link>
+            <Link to="/"><h1 className={"header-title"} onClick={() => setActivePage(1)}>Fake Store API App</h1></Link>
             <Link to="/cart"><i className={"header-icon"} class={iconStyle}></i></Link>
         </header>
     )
