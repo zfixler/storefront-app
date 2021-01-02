@@ -4,7 +4,7 @@ This project features a simple, interactive e-commerce interface.
 
 ## Features
 
-The data displayed in this app is being fetched from the Fake Store API. The data is displayed over two pages, and sortable through the search.
+The data displayed in this app is being fetched from the Fake Store API. The data is displayed over two pages, and sortable through the search. Users can add and remove items from their shopping cart, and mimic a checkout.
 
 ### Technology
 
