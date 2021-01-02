@@ -32,7 +32,7 @@ function Storefront(){
 
         setResult(searchResult)
 
-    }, [searchTerm])
+    }, [searchTerm, allProducts])
 
     const displayResult = result.map(item => <Product key={item.id} product={item.item}/>)
 
