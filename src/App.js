@@ -10,10 +10,10 @@ function App() {
       <Header />
 
       <Switch>
-        <Route exact path="/storefront-app">
+        <Route exact path="/">
           <Storefront />
         </Route>
-        <Route path="/storefront-app/cart">
+        <Route path="/cart">
           <Cart />
         </Route>
       </Switch>
