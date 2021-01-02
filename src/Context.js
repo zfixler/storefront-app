@@ -22,9 +22,14 @@ function ContextProvider({children}){
 
     useEffect(() => {
         async function getData(){
+            setIsLoading(true)
+
+            try {
             const data = await fetch('https://fakestoreapi.com/products/')
             const response = await data.json()
             setAllProducts(response)
+        } catch(error){ console.log(error)}      
+
             setIsLoading(false)
         }
 
