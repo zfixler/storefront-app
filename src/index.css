@@ -50,6 +50,13 @@ header a {
   margin: 0;
 }
 
+@media (max-width: 600px){
+  .header-title {
+    font-size: 1.25rem;
+    text-align: left;
+  }
+}
+
 /* ======================== 
 ==== Storefront Styles ====
 ======================== */
@@ -61,6 +68,7 @@ header a {
     max-width: 75%;
     margin: 0 auto;
 }
+
 
 .page-numbers {
   display: flex;
@@ -121,6 +129,11 @@ header a {
   100% { transform: rotate(360deg); }
 }
 
+@media (max-width:600px){
+  .storefront-container {
+    max-width: 90%;
+  }
+}
 
 /* ===================== 
 ==== Product Styles ====
